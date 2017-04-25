@@ -19,3 +19,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
+
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+
+    // Создайте функцию для размещения своего класса
+    function your_shipping_method_init() {
+        require_once dirname(__FILE__) . '/WC_Your_Shipping_Method.php';
+    }
+
+    add_action( 'woocommerce_shipping_init', 'your_shipping_method_init' );
+
+
+}
+
