@@ -38,5 +38,21 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 
 
+    // Создайте функцию для размещения своего класса
+    function tutsplus_shipping_method() {
+        require_once dirname(__FILE__) . '/TutsPlus_Shipping_Method.php';
+    }
+
+    add_action( 'woocommerce_shipping_init', 'tutsplus_shipping_method' );
+
+
+    function add_tutsplus_shipping_method( $methods ) {
+        $methods[] = 'TutsPlus_Shipping_Method';
+        return $methods;
+    }
+    add_filter( 'woocommerce_shipping_methods', 'add_tutsplus_shipping_method' );
+
+
+
 }
 

@@ -24,8 +24,8 @@
       <file leaf-file-name="woocommerce-lesson.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/woocommerce-lesson.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="473">
+              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
               <folding>
                 <element signature="e#6#537#0#PHP" expanded="true" />
               </folding>
@@ -33,11 +33,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WC_Your_Shipping_Method.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WC_Your_Shipping_Method.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WC_Your_Shipping_Method.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+            <state relative-caret-position="263">
+              <caret line="50" column="63" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="63" />
+              <folding>
+                <element signature="e#7#100#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TutsPlus_Shipping_Method.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TutsPlus_Shipping_Method.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="60" column="63" selection-start-line="60" selection-start-column="63" selection-end-line="60" selection-end-column="63" />
               <folding>
                 <element signature="e#7#100#0#PHP" expanded="true" />
               </folding>
@@ -57,8 +69,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/woocommerce-lesson.php" />
         <option value="$PROJECT_DIR$/WC_Your_Shipping_Method.php" />
+        <option value="$PROJECT_DIR$/woocommerce-lesson.php" />
+        <option value="$PROJECT_DIR$/TutsPlus_Shipping_Method.php" />
       </list>
     </option>
   </component>
@@ -180,12 +193,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1492983901751</updated>
-      <workItem from="1492983904073" duration="3391000" />
+      <workItem from="1492983904073" duration="4386000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3391000" />
+    <option name="totallyTimeSpent" value="4386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1855" y="23" width="1855" height="1057" extended-state="0" />
@@ -196,8 +209,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20739107" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20739107" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -231,8 +244,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/woocommerce-lesson.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="473">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
           <folding>
             <element signature="e#6#537#0#PHP" expanded="true" />
           </folding>
@@ -241,8 +254,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WC_Your_Shipping_Method.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+        <state relative-caret-position="263">
+          <caret line="50" column="63" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="63" />
+          <folding>
+            <element signature="e#7#100#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TutsPlus_Shipping_Method.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="60" column="63" selection-start-line="60" selection-start-column="63" selection-end-line="60" selection-end-column="63" />
           <folding>
             <element signature="e#7#100#0#PHP" expanded="true" />
           </folding>
