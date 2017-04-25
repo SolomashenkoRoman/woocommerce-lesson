@@ -30,5 +30,13 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
     add_action( 'woocommerce_shipping_init', 'your_shipping_method_init' );
 
 
+    function add_your_shipping_method( $methods ) {
+        $methods['your_shipping_method'] = 'WC_Your_Shipping_Method';
+        return $methods;
+    }
+    add_filter( 'woocommerce_shipping_methods', 'add_your_shipping_method' );
+
+
+
 }
 

@@ -48,8 +48,18 @@ if ( ! class_exists( 'WC_Your_Shipping_Method' ) ) {
          * @param mixed $package
          * @return void
          */
-        public function calculate_shipping( $package ) {
+        public function calculate_shipping( $package = array() ) {
             // This is where you'll add your rates
+            $rate = array(
+                'id' => $this->id,
+                'label' => $this->title,
+                'cost' => '10.99',
+                'calc_tax' => 'per_item'
+            );
+
+            // Register the rate
+            $this->add_rate( $rate );
+
         }
     }
 }
