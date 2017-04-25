@@ -1,11 +1,21 @@
 <?php
+/**
+ * Plugin Name: Woocommerce Lesson
+ * Plugin URI: https://github.com/SolomashenkoRoman/woocommerce-lesson
+ * Description: Woocommerce Lesson
+ * Version: 1.0.0
+ * Author: WooCommerce
+ * Author URI: http://woocommerce.com/
+ * Developer: Solomashenko Roman
+ * Developer URI: https://www.linkedin.com/in/solomashenkoroman/
+ * Text Domain: woocommerce-lesson
+ * Domain Path: /languages
+ *
+ * Copyright: © 2009-2015 WooCommerce.
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ */
 
-/*
-Plugin Name: Woocommerce Lesson
-Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
-Description: A brief description of the Plugin.
-Version: 1.0
-Author: romansolomashenko
-Author URI: http://URI_Of_The_Plugin_Author
-License: A "Slug" license name e.g. GPL2
-*/
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
