@@ -50,6 +50,9 @@ if ( ! class_exists( 'WC_Your_Shipping_Method' ) ) {
          */
         public function calculate_shipping( $package = array() ) {
             // This is where you'll add your rates
+            
+
+
             $rate = array(
                 'id' => $this->id,
                 'label' => $this->title,

@@ -22,11 +22,11 @@ if ( ! class_exists( 'WC_Novaya_Pochta_Shipping_Method' ) ) {
         public function __construct() {
             $this->id                 = 'novaya_pochta_shipping_method';
             $this->title       = __( 'Novaya Pochta' );
+            $this->method_title = __( 'Novaya Pochta' ); //
             $this->method_description = __( 'Description of Novaya Pochta shipping method' ); //
             //$this->enabled            = "yes"; // This can be added as an setting but for this example its forced enabled
 
-            $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
-            $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : __('Novaya Pochta');
+            
 
             // Availability & Countries
             $this->availability = 'including';
@@ -43,6 +43,12 @@ if ( ! class_exists( 'WC_Novaya_Pochta_Shipping_Method' ) ) {
 
 
             $this->init();
+
+            $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
+            $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : __('Novaya Pochta');
+
+           // error_log(print_r($this->settings, true));
+
         }
 
         /**
