@@ -33,6 +33,7 @@ if ( ! class_exists( 'WC_Novaya_Pochta_Shipping_Method' ) ) {
             $this->countries = array(
                 'US', // Unites States of America
                 'CA', // Canada
+
                 'DE', // Germany
                 'GB', // United Kingdom
                 'IT',   // Italy
