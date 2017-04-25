@@ -20,6 +20,18 @@ if ( ! class_exists( 'TutsPlus_Shipping_Method' ) ) {
             $this->method_title       = __( 'TutsPlus Shipping', 'tutsplus' );
             $this->method_description = __( 'Custom Shipping Method for TutsPlus', 'tutsplus' );
 
+            // Availability & Countries
+            $this->availability = 'including';
+            $this->countries = array(
+                'US', // Unites States of America
+                'CA', // Canada
+                'DE', // Germany
+                'GB', // United Kingdom
+                'IT',   // Italy
+                'ES', // Spain
+                'HR'  // Croatia
+            );
+
             $this->init();
 
             $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
