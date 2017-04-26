@@ -1,33 +1,43 @@
-
-
 <?php
+
+
+/**
+* 
+*/
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-if ( ! class_exists( 'WC_Delivery_Shipping_Method' ) ) {
-    class WC_Delivery_Shipping_Method extends WC_Shipping_Method
-    {
-    	/**
+if ( ! class_exists( 'WC_Intime_Shipping_Method' ) ) {
+	class WC_Intime_Shipping_Method extends WC_Shipping_Method
+	{
+		
+		 /**
          * Constructor for your shipping class
          *
          * @access public
          * @return void
          */
         public function __construct() {
-            $this->id                 = 'delivery_shipping_method'; 
-            $this->method_title       = __( 'Delivery');  
-            $this->method_description = __( 'Custom Shipping Method for Delivery'); 
+            $this->id  = 'intime_shipping_method';
+          
+            $this->method_title = __( 'Intime Shipping Method' );
+            $this->method_description = __( 'Description of your shipping method' ); //
 
 
             $this->availability = 'including';
 			$this->countries = array(
+			    'US', // Unites States of America
+			    'CA', // Canada
 			    'UA', //    Ukraine
 			    );
-
+           
             $this->init();
 
+          
+
             $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
-            $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : __( 'Delivery' );
+            $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : __( 'Intime Shipping Method' );
         }
 
         /**
@@ -38,12 +48,13 @@ if ( ! class_exists( 'WC_Delivery_Shipping_Method' ) ) {
          */
         function init() {
             // Load the settings API
-            $this->init_form_fields(); 
-            $this->init_settings(); 
+            $this->init_form_fields(); // This is part of the settings API. Override the method to add your own settings
+            $this->init_settings(); // This is part of the settings API. Loads settings you previously init.
 
             // Save settings in admin if you have any defined
             add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
         }
+
 
         /**
          * Define settings field for this shipping
@@ -65,13 +76,13 @@ if ( ! class_exists( 'WC_Delivery_Shipping_Method' ) ) {
 			            'title' => __( 'Title'),
 			              'type' => 'text',
 			              'description' => __( 'Title to be display on site'),
-			              'default' => __( 'Delivery')
+			              'default' => __( 'Intime Shipping Method')
 			              ),
 			         'coast' => array(
 			            'title' => __( 'Coast'),
 			              'type' => 'text',
 			              'description' => __( 'Coast'),
-			              'default' => 1000
+			              'default' => 10
 			              ),
 			 
 			         );
@@ -79,18 +90,15 @@ if ( ! class_exists( 'WC_Delivery_Shipping_Method' ) ) {
         }
 
         /**
-         * This function is used to calculate the shipping cost. Within this function we can check for weights, dimensions and other parameters.
+         * calculate_shipping function.
          *
          * @access public
          * @param mixed $package
          * @return void
          */
         public function calculate_shipping( $package = array() ) {
+            // This is where you'll add your rates
             
-
-            $country = $package["destination"]["country"];
-
-            //error_log(print_r($package["destination"], true));
         	//error_log(print_r($package, true));
 
         	$weight = 0;
@@ -100,21 +108,33 @@ if ( ! class_exists( 'WC_Delivery_Shipping_Method' ) ) {
                $weight = $weight + $_product->get_weight() * $values['quantity']; 
            }
 
-           error_log(print_r($weight, true));
+           	$country = $package["destination"]["country"]; 
+            $countryZones = array(
+		        'US' => 1, // Unites States of America
+			    'CA' => 2, // Canada
+			    'UA' => 3, //    Ukraine
+		    );
+ 
+	    	$zonePrices = array(
+		        1 => 10,
+		        2 => 30,
+		        3 => 50,
+		       
+	        );
 
-            // We will add the cost, rate and logics in here
-             $rate = array(
+         
+	    	$coast = $zonePrices[$countryZones[$country]];
+
+            $rate = array(
                 'id' => $this->id,
                 'label' => $this->title,
-                'cost' => $this->settings['coast'] * $weight,
+                'cost' => $this->settings['coast'] * ($weight/10) * $coast,
                 'calc_tax' => 'per_item'
             );
 
             // Register the rate
             $this->add_rate( $rate );
 
-           
-            
         }
-    }
+	}
 }
