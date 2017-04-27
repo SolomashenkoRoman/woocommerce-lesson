@@ -117,11 +117,66 @@ if ( ! class_exists( 'WC_LiqPay_Payment_Gateway' ) ) {
 
             $liqpay = new LiqPay($this->public_key, $this->private_key);
 
-            error_log(print_r($order_id, true));
+            /*error_log(print_r($order_id, true));
             error_log(print_r($this->mode, true));
             error_log(print_r($this->public_key, true));
             error_log(print_r($this->private_key, true));
             error_log(print_r($liqpay, true));
+            error_log(print_r($_POST, true));*/
+
+            $payload = array();
+            $card = '';
+            $card_cvv = '';
+            $card_expiry = '';
+            $card_exp_month = '';
+            $card_exp_year = '';
+            $card = str_replace( array(' ', '-' ), '', $_POST['liqpay_payment_gateway-card-number'] );
+            $card_cvv = isset( $_POST['liqpay_payment_gateway-card-cvc'] ) ? $_POST['liqpay_payment_gateway-card-cvc'] : '';
+            $card_expiry = explode('/', $_POST['liqpay_payment_gateway-card-expiry']);
+
+            //error_log(print_r($card_expiry, true));
+
+            $card_exp_month = $card_expiry[0];
+            $card_exp_year = $card_expiry[1];
+
+            $payload = array(
+                'action'         => 'pay',
+                'version'        => '3',
+                'phone'          => $customer_order->billing_phone,
+                'amount'         => $customer_order->order_total,
+                'currency'       => 'USD',
+                'description'    => 'description text',
+                'order_id'       => $customer_order->get_order_number(),
+                'card'           => $card,
+                'card_exp_month' => $card_exp_month,
+                'card_exp_year'  => $card_exp_year,
+                'card_cvv'       => $card_cvv
+            );
+
+            if($this->mode == 'yes')
+                $payload['sandbox'] = '1';//Для включения тестового режима
+
+            error_log(print_r($payload, true));
+
+            $response = $liqpay->api("request", $payload);
+
+            error_log(print_r($response, true));
+
+        }
+
+        // Validate fields
+        public function validate_fields() {
+            return true;
+        }
+
+        // Check if we are forcing SSL on checkout pages
+// Custom function not required by the Gateway
+        public function do_ssl_check() {
+            if( $this->enabled == "yes" ) {
+                if( get_option( 'woocommerce_force_ssl_checkout' ) == "no" ) {
+                    echo "<div class=\"error\"><p>". sprintf( __( "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL certificate on your checkout page. Please ensure that you have a valid SSL certificate and that you are <a href=\"%s\">forcing the checkout pages to be secured.</a>" ), $this->method_title, admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) ."</p></div>";
+                }
+            }
         }
 
     }
