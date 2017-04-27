@@ -37,7 +37,42 @@ if (! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', 
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 
 
-     function intime_validate_order( $posted )   {
+    // Include our Gateway Class and Register Payment Gateway with WooCommerce
+    add_action( 'plugins_loaded', 'wc_les_liqpay_init', 0 );
+
+    function wc_les_liqpay_init() {
+        require_once dirname(__FILE__) . '/WC_LiqPay_Payment_Gateway.php';
+    }
+
+    add_filter( 'woocommerce_payment_gateways', 'add_liqpay_gateway_class' );
+    function add_liqpay_gateway_class( $methods ) {
+        //error_log(print_r($methods, true));
+        $methods[] = 'WC_LiqPay_Payment_Gateway';
+        return $methods;
+    }
+
+
+    // Add custom action links
+    add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'wc_les_liqpay_action_links' );
+    function wc_les_liqpay_action_links( $links ) {
+        $plugin_links = array(
+            '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=checkout' ) . '">'
+            . __( 'Settings') . '</a>',
+        );
+
+        // Merge our new link with the default ones
+        return array_merge( $plugin_links, $links );
+    }
+
+
+
+
+
+
+
+
+
+    function intime_validate_order( $posted )   {
 
         $packages = WC()->shipping->get_packages();
 
